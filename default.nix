@@ -2,10 +2,10 @@
 with lib;
 with pkgs;
 let
- cfg = config.neovim;
+ cfg = config.orbit-nvim;
 in
 {
-  options.neovim = {
+  options.orbit-nvim = {
     enable = mkOption {
       type = types.bool;
       default = false;

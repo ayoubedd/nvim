@@ -8,6 +8,6 @@
     pkgs = import nixpkgs { system = "x86_64-linux"; };
   in
   {
-    homeManagerModules.neovim = import ./default.nix { inherit pkgs; };
+    homeManagerModules.orbit-nvim = import ./default.nix { inherit pkgs; };
   };
 }

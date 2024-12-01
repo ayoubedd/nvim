@@ -67,8 +67,16 @@ set(
 	":lua vim.lsp.buf.signature_help()<cr>",
 	{ desc = "Signature Help", noremap = true, silent = true }
 )
-
 set("n", "<leader>lD", ":Telescope diagnostics<cr>", { desc = "Telescope Diagnostic", noremap = true, silent = true })
+set("n", "<leader>ls", ":lua require'telescope.builtin'.lsp_references{}<cr>", { desc = "Telescope symbols", noremap = true, silent = true })
+set("n", "<leader>lS", ":lua require'telescope.builtin'.lsp_workspace_symbols{}<cr>", { desc = "Telescope workspace symbols", noremap = true, silent = true })
+
+-- Git keymaps
+set("n", "<leader>gc", ":lua require'telescope.builtin'.git_commits{}<cr>", { desc = "Telescope git commits", noremap = true, silent = true })
+set("n", "<leader>gb", ":lua require'telescope.builtin'.git_branches{}<cr>", { desc = "Telescope git branches", noremap = true, silent = true })
+set("n", "<leader>gs", ":lua require'telescope.builtin'.git_status{}<cr>", { desc = "Telescope git status", noremap = true, silent = true })
+
+
 set(
 	"n",
 	"<leader>lt",

@@ -41,7 +41,35 @@ in
         typescript-language-server
         vscode-langservers-extracted
         emmet-ls
-      ];
+
+      ] ++ (with pkgs.tree-sitter-grammars; [
+        # grammars
+        tree-sitter-c
+        tree-sitter-go
+        tree-sitter-gomod
+        tree-sitter-zig
+        tree-sitter-vim
+        tree-sitter-tsx
+        tree-sitter-sql
+        tree-sitter-nix
+        tree-sitter-lua
+        tree-sitter-css
+        tree-sitter-cpp
+        tree-sitter-yaml
+        tree-sitter-toml
+        tree-sitter-scss
+        tree-sitter-rust
+        tree-sitter-make
+        tree-sitter-json
+        tree-sitter-html
+        tree-sitter-bash
+        tree-sitter-svelte
+        tree-sitter-python
+        tree-sitter-markdown
+        tree-sitter-typescript
+        tree-sitter-javascript
+        tree-sitter-dockerfile
+      ]);
     };
 
     home.file.".config/nvim" = {

@@ -30,9 +30,9 @@ return {
 			lua = { "stylua" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 		},
-		format_after_save = {
-			lsp_format = "fallback",
-		},
+		-- format_after_save = {
+		-- 	lsp_format = "fallback",
+		-- },
 		-- format_on_save = {
 		-- 	lsp_fallback = true,
 		-- 	async = false,

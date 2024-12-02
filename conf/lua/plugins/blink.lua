@@ -5,17 +5,8 @@ return {
 	dependencies = {
     { 'saghen/blink.compat', version = '*', opts = { impersonate_nvim_cmp = true } },
     "mikavilpas/blink-ripgrep.nvim",
-    "rafamadriz/friendly-snippets",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-cmdline",
-		"saadparwaiz1/cmp_luasnip",
-		"L3MON4D3/LuaSnip",
-		"rafamadriz/friendly-snippets",
-		"onsails/lspkind.nvim",
-	},
+    "rafamadriz/friendly-snippets"
+  },
   -- use a release tag to download pre-built binaries
   version = 'v0.*',
   -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -40,7 +31,7 @@ return {
       use_nvim_cmp_as_default = false,
       -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
       -- Adjusts spacing to ensure icons are aligned
-      nerd_font_variant = 'normal'
+      nerd_font_variant = 'mono'
     },
 
 

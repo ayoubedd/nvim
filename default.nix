@@ -40,6 +40,10 @@ in
         # formatters
         nixfmt
         nodePackages.prettier
+        prettierd
+        black
+        stylua
+        rustfmt
 
         svelte-language-server
         typescript-language-server

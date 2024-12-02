@@ -14,10 +14,11 @@ return {
 	},
 	opts = {
 		formatters_by_ft = {
-			javascript = { "prettier" },
-			typescript = { "prettier" },
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+			python = { "black" },
 			svelte = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
@@ -26,6 +27,11 @@ return {
 			markdown = { "prettier" },
 			graphql = { "prettier" },
 			nix = { "nixfmt" },
+			lua = { "stylua" },
+			rust = { "rustfmt", lsp_format = "fallback" },
+		},
+		format_after_save = {
+			lsp_format = "fallback",
 		},
 		-- format_on_save = {
 		-- 	lsp_fallback = true,

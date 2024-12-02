@@ -34,6 +34,10 @@ return {
 			cmd = { "vscode-json-languageserver", "--stdio" }
 		})
 
+		lspconfig.typos_lsp.setup({
+			capabilities = capabilities,
+		})
+
 		lspconfig.nixd.setup({
 			capabilities = capabilities,
 			cmd = { "nixd" },

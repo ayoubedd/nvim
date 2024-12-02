@@ -36,6 +36,7 @@ in
         rust-analyzer
         gopls
         clang-tools
+        typos-lsp
 
         # formatters
         nixfmt

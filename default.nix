@@ -37,6 +37,10 @@ in
         gopls
         clang-tools
 
+        # formatters
+        nixfmt
+        nodePackages.prettier
+
         svelte-language-server
         typescript-language-server
         vscode-langservers-extracted

@@ -25,6 +25,7 @@ return {
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			graphql = { "prettier" },
+			nix = { "nixfmt" },
 		},
 		-- format_on_save = {
 		-- 	lsp_fallback = true,

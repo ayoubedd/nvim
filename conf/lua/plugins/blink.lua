@@ -35,59 +35,60 @@ return {
     },
 
 
-    snippets = {
-      expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
-      active = function(filter)
-        if filter and filter.direction then
-          return require('luasnip').jumpable(filter.direction)
-        end
-        return require('luasnip').in_snippet()
-      end,
-      jump = function(direction) require('luasnip').jump(direction) end,
-    },
+    -- snippets = {
+    --   expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+    --   active = function(filter)
+    --     if filter and filter.direction then
+    --       return require('luasnip').jumpable(filter.direction)
+    --     end
+    --     return require('luasnip').in_snippet()
+    --   end,
+    --   jump = function(direction) require('luasnip').jump(direction) end,
+    -- },
 
     -- default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, via `opts_extend`
     sources = {
-      completion = {
-        enabled_providers = { 'lsp', 'ripgrep', 'luasnip', 'path', 'snippets', 'buffer' },
-      },
+      default = { 'lsp', 'path',  'buffer' },
+      -- completion = {
+      --   enabled_providers = { 'lsp', 'ripgrep', 'luasnip', 'path', 'snippets', 'buffer' },
+      -- },
       providers = {
-        ripgrep = {
-          module = "blink-ripgrep",
-          name = "Ripgrep",
-          -- the options below are optional, some default values are shown
-          ---@module "blink-ripgrep"
-          ---@type blink-ripgrep.Options
-          opts = {
-            -- For many options, see `rg --help` for an exact description of
-            -- the values that ripgrep expects.
-
-            -- the minimum length of the current word to start searching
-            -- (if the word is shorter than this, the search will not start)
-            prefix_min_len = 3,
-
-            -- The number of lines to show around each match in the preview window
-            context_size = 5,
-
-            -- The maximum file size that ripgrep should include in its search.
-            -- Useful when your project contains large files that might cause
-            -- performance issues.
-            -- Examples: "1024" (bytes by default), "200K", "1M", "1G"
-            max_filesize = "1M",
-          },
-        },
-        luasnip = {
-          name = 'luasnip',
-          module = 'blink.compat.source',
-
-          score_offset = -3,
-
-          opts = {
-            use_show_condition = false,
-            show_autosnippets = true,
-          },
-        },
+        -- ripgrep = {
+        --   module = "blink-ripgrep",
+        --   name = "Ripgrep",
+        --   -- the options below are optional, some default values are shown
+        --   ---@module "blink-ripgrep"
+        --   ---@type blink-ripgrep.Options
+        --   opts = {
+        --     -- For many options, see `rg --help` for an exact description of
+        --     -- the values that ripgrep expects.
+        --
+        --     -- the minimum length of the current word to start searching
+        --     -- (if the word is shorter than this, the search will not start)
+        --     prefix_min_len = 3,
+        --
+        --     -- The number of lines to show around each match in the preview window
+        --     context_size = 5,
+        --
+        --     -- The maximum file size that ripgrep should include in its search.
+        --     -- Useful when your project contains large files that might cause
+        --     -- performance issues.
+        --     -- Examples: "1024" (bytes by default), "200K", "1M", "1G"
+        --     max_filesize = "1M",
+        --   },
+        -- },
+        -- luasnip = {
+        --   name = 'luasnip',
+        --   module = 'blink.compat.source',
+        --
+        --   score_offset = -3,
+        --
+        --   opts = {
+        --     use_show_condition = false,
+        --     show_autosnippets = true,
+        --   },
+        -- },
       },
     },
 

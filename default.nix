@@ -50,6 +50,7 @@ in
         typescript-language-server
         vscode-langservers-extracted
         emmet-ls
+        harper
 
       ] ++ (with pkgs.tree-sitter-grammars; [
         # grammars

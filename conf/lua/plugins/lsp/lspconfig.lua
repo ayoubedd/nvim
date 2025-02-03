@@ -34,6 +34,8 @@ return {
 			cmd = { "vscode-json-languageserver", "--stdio" }
 		})
 
+		lspconfig.harper_ls.setup{}
+
 		lspconfig.typos_lsp.setup({
 			capabilities = capabilities,
 		})

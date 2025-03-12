@@ -50,6 +50,8 @@ return {
 			filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
 		})
 
+		lspconfig.denols.setup({})
+
 		-- tsserver
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,

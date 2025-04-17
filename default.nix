@@ -83,6 +83,7 @@ in {
         gnumake # telescope-fzf-native-nvim
         tree-sitter
         ripgrep
+        inotify-tools
 
         # lsp servers
         nixd

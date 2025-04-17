@@ -1,10 +1,9 @@
-{ pkgs }: { lib, config, ... }: 
+{ pkgs }:
+{ lib, config, ... }:
 with lib;
 with pkgs;
-let
- cfg = config.orbit-nvim;
-in
-{
+let cfg = config.orbit-nvim;
+in {
   options.orbit-nvim = {
     enable = mkOption {
       type = types.bool;
@@ -18,15 +17,72 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-    ] ++ optional cfg.neovide neovide;
+    home.packages = [ ] ++ optional cfg.neovide neovide;
 
     programs.neovim = {
-      package = neovim-unwrapped;
       enable = true;
-      extraPackages = [
+
+      plugins = [
+        (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+          p.asm
+          p.bash
+          p.c
+          p.cpp
+          p.css
+          p.csv
+          p.diff
+          p.dockerfile
+          p.gitattributes
+          p.gitcommit
+          p.git_config
+          p.gitignore
+          p.go
+          p.goctl
+          p.gomod
+          p.gosum
+          p.html
+          p.ini
+          p.javascript
+          p.jsdoc
+          p.json
+          p.just
+          p.latex
+          p.linkerscript
+          p.lua
+          p.make
+          p.markdown
+          p.nasm
+          p.nginx
+          p.objdump
+          p.passwd
+          p.proto
+          p.python
+          p.regex
+          p.rust
+          p.scss
+          p.ssh_config
+          p.strace
+          p.toml
+          p.tsx
+          p.typescript
+          p.udev
+          p.vim
+          p.vimdoc
+          p.vue
+          p.xml
+          p.yaml
+        ]))
+      ];
+
+      extraPackages = with pkgs; [
         # essentials
-        nodejs gcc git cargo tree-sitter ripgrep
+        nodejs
+        gcc
+        git
+        cargo
+        gnumake # telescope-fzf-native-nvim
+        tree-sitter
+        ripgrep
 
         # lsp servers
         nixd
@@ -37,6 +93,12 @@ in
         gopls
         clang-tools
         typos-lsp
+        bash-language-server
+        svelte-language-server
+        typescript-language-server
+        vscode-langservers-extracted
+        emmet-ls
+        harper
 
         # formatters
         nixfmt
@@ -45,41 +107,7 @@ in
         black
         stylua
         rustfmt
-
-        svelte-language-server
-        typescript-language-server
-        vscode-langservers-extracted
-        emmet-ls
-        harper
-
-      ] ++ (with pkgs.tree-sitter-grammars; [
-        # grammars
-        tree-sitter-c
-        tree-sitter-go
-        tree-sitter-gomod
-        tree-sitter-zig
-        tree-sitter-vim
-        tree-sitter-tsx
-        tree-sitter-sql
-        tree-sitter-nix
-        tree-sitter-lua
-        tree-sitter-css
-        tree-sitter-cpp
-        tree-sitter-yaml
-        tree-sitter-toml
-        tree-sitter-scss
-        tree-sitter-rust
-        tree-sitter-make
-        tree-sitter-json
-        tree-sitter-html
-        tree-sitter-bash
-        tree-sitter-svelte
-        tree-sitter-python
-        tree-sitter-markdown
-        tree-sitter-typescript
-        tree-sitter-javascript
-        tree-sitter-dockerfile
-      ]);
+      ];
     };
 
     home.file.".config/nvim" = {

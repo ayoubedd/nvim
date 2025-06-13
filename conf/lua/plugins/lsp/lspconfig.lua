@@ -54,6 +54,7 @@ return {
 
 		-- tsserver
 		lspconfig.ts_ls.setup({
+      single_file_support = false,
 			capabilities = capabilities,
 			settings = {
 				diagnostics = { ignoredCodes = { 6133 } }

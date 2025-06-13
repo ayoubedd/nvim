@@ -93,7 +93,7 @@ return {
     },
 
     -- experimental auto-brackets support
-    completion = { accept = { auto_brackets = { enabled = true } } },
+    completion = { accept = { auto_brackets = { enabled = false } } },
 
     -- experimental signature help support
     signature = { enabled = true }
